@@ -1,3 +1,4 @@
+-- Active: 1723898718990@@127.0.0.1@3306@gestionVenteVetements
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
@@ -9,6 +10,36 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "mysql"
   url      = env("DATABASE_URL")
 }
+
+model Article {
+  id Int @id @default(autoincrement())
+  libelle String
+  prix Float
+  stock Int
+  ventes Vente[] @relation("ArticleVentes")
+}
+
+model Vendeur {
+  id Int @id @default(autoincrement())
+  nomComplet String
+  email String @unique
+  password String
+  ventes Vente[] @relation("VendeurVentes")
+}
+
+model Vente {
+  id Int @id @default(autoincrement())
+  montant Float
+  date DateTime @default(now())
+  articleId Int
+  vendeurId Int
+  client String
+  article Article @relation("ArticleVentes", fields: [articleId], references: [id])
+  vendeur Vendeur @relation("VendeurVentes", fields: [vendeurId], references: [id])
+}
+
+
+

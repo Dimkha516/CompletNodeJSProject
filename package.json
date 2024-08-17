@@ -9,7 +9,7 @@
     "yaml": "^2.5.0"
   },
   "scripts": {
-    "start": "node server.js"
+    "start": "nodemon server.js"
   },
   "name": "completnodejsproject",
   "version": "1.0.0",
