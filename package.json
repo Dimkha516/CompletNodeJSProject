@@ -1,0 +1,32 @@
+{
+  "dependencies": {
+    "@prisma/client": "^5.18.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.5.3",
+    "nodemon": "^3.1.4",
+    "yaml": "^2.5.0"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "completnodejsproject",
+  "version": "1.0.0",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dimkha516/CompletNodeJSProject.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dimkha516/CompletNodeJSProject/issues"
+  },
+  "homepage": "https://github.com/Dimkha516/CompletNodeJSProject#readme",
+  "description": "",
+  "devDependencies": {
+    "prisma": "^5.18.0"
+  }
+}
