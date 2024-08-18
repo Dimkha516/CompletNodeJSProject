@@ -1,0 +1,113 @@
+openapi: 3.0.0
+info:
+  title: Nice Clothes Shop APP
+  description: API Documentation for Shop APP
+  version: 1.0.0
+
+servers:
+  - url: http://localhost:5000
+    description: Server local
+
+paths:
+  /articles:
+    get:
+      summary: Afficher la liste de tous les articles
+      tags:
+        - Articles
+      responses:
+        "200":
+          description: Voici la liste des articles
+        "404":
+          description: Aucun article trouvé
+
+  /articles/{id}:
+    get:
+      summary: Afficher un article en donnant son id
+      tags:
+        - Articles
+      parameters: 
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+          description: ID de l'article à afficher
+      responses: 
+        "200":
+          description: Article récupéré avec succès !
+        "400":
+          description: "Article non trouvé"
+  
+  /articles/: 
+    post:
+      summary: Ajouter Un model
+      tags:
+        - Articles
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - libelle
+                - prix
+                - stock
+              properties:
+                libelle:
+                  type: string
+                prix:
+                  type: integer
+                stock:
+                  type: integer
+      responses:
+        '201':
+          description: "Article crée avec succès !"
+        '400':
+          description: "Erreur création création article"
+
+  /articles/minPrices:
+    post:
+      summary: Liste des articles avec un prix inférieur ou égal au montant saisi
+      tags:
+        - Articles
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - intervalValue
+              properties:
+                intervalValue:
+                  type: integer
+                  description: le prix saisi
+      responses:
+        "200":
+          description: Liste des articles dont le prix est inférieur ou égal au montant saisi
+        "400":
+          description: La valeur saisie est invalide
+
+  /articles/maxPrices:
+    post:
+      summary: Liste des articles avec un prix supérieur ou égal au montant saisi
+      tags:
+        - Articles
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - intervalValue
+              properties:
+                intervalValue:
+                  type: integer
+                  description: le prix saisi
+      responses:
+        "200":
+          description: Articles avec un prix supérieur ou égal au montant saisi
+        "400":
+          description: La valeur saisie est invalide

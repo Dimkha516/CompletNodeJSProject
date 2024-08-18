@@ -24,7 +24,7 @@ module.exports.getArticles = async (req, res) => {
 module.exports.getArticle = async (req, res) => {
   const articleId = parseInt(req.params.id);
   if (!articleId) {
-    return res.status(401).json({ message: "Id Article invalide" });
+    res.status(401).json({ message: "Id Article invalide" });
   }
 
   const article = await prisma.Article.findUnique({
@@ -78,7 +78,7 @@ module.exports.getMinPrices = async (req, res) => {
         prix: {
           lte: intervalValue,
         },
-      },
+      }, 
     });
     if (correspondArticles.length > 0) {
       res.status(200).json(correspondArticles);

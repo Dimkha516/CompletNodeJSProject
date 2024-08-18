@@ -4,30 +4,37 @@ const vendeurRouter = require("./Routes/vendeursRoutes");
 const venteRouter = require("./Routes/ventesRoutes");
 const app = express();
 const dotenv = require("dotenv").config();
+const swaggerUi = require("swagger-ui-express");
+const YAML = require("yamljs");
 const port = process.env.PORT;
-
+ 
 // MIDDLEWARES:
 app.use(express.json());
 
-// ROUTES:
-app.use("/api/articles/", articlesRouter);
-app.use("/api/vendeurs/", vendeurRouter);
-app.use("/api/ventes/", venteRouter);
+// CHARGER LE FICHIER YAML:  
+const swaggerDocument = YAML.load("./Doc.yaml"); 
 
+//CONFIGURER UN LIEN VERS LA DOC DE SWAGGER API:
+app.use("/app-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+  
+// ROUTES:
+app.use("/articles/", articlesRouter); 
+app.use("/vendeurs/", vendeurRouter);
+app.use("/ventes/", venteRouter); 
+ 
 // LANCEMENT SERVER:
 app.listen(port, () => {
-  console.log("Running on port: " + port);
-});
-
-
-/* REQUÊTES:
-
---- CRÉER ARTICLE, VENDEUR, VENTE: create();                             ============== FAIT.
+  console.log("Running on port: " + port); 
+});   
+     
+/* REQUÊTES:    
+   
+--- CRÉER ARTICLE, VENDEUR, VENTE: create();                                    ============== FAIT.
 
 --- AFFICHER TOUS LES ARTICLES, VENDEURS ET VENTES: findMany();          ============== FAIT. 
 
-
-
+ 
+ 
 --- AFFICHER PAR UN: findUnique()
 ARTCILE PAR ID                                                                  ============== FAIT.
 VENDEUR PAR ID                                                                 ============== FAIT.

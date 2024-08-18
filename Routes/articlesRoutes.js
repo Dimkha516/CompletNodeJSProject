@@ -13,8 +13,8 @@ const articlesRouter = express.Router();
 
 // GETS:
 articlesRouter.get("/", getArticles);
-articlesRouter.get("/minPrices/", getMinPrices);
-articlesRouter.get("/getMaxPrices/", getMaxPrices);
+articlesRouter.post("/minPrices", getMinPrices);
+articlesRouter.post("/maxPrices", getMaxPrices);
 articlesRouter.delete("/:id", deleteArticle);
 articlesRouter.put("/:id", updateArticle);
 articlesRouter.get("/ventesArticle/", nombreVenteArticle);
