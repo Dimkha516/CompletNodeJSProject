@@ -7,6 +7,7 @@ const {
   getMaxPrices,
   updateArticle,
   deleteArticle,
+  nombreVenteArticle,
 } = require("../Controllers/articlesControllers");
 const articlesRouter = express.Router();
 
@@ -16,8 +17,8 @@ articlesRouter.get("/minPrices/", getMinPrices);
 articlesRouter.get("/getMaxPrices/", getMaxPrices);
 articlesRouter.delete("/:id", deleteArticle);
 articlesRouter.put("/:id", updateArticle);
+articlesRouter.get("/ventesArticle/", nombreVenteArticle);
 articlesRouter.get("/:id", getArticle);
 articlesRouter.post("/", createArticle);
-
 
 module.exports = articlesRouter;

@@ -117,3 +117,21 @@ module.exports.getMaxPrices = async (req, res) => {
     res.status(400).json({ message: "erreur interval de prix: " + err });
   }
 };
+
+module.exports.nombreVenteArticle = async (req, res) => {
+  const { articleId } = req.body;
+  if (!articleId) {
+    return res.status(400).json({ message: "Id article invalide" });
+  }
+
+  const nombreVenteArticle = await prisma.Vente.count({
+    where: { articleId: articleId },
+  });
+  if (nombreVenteArticle.length <= 0) {
+    res.status(200).json({ message: "Cet article n'est pas encore vendu" });
+  } else {
+    res.status(200).json({
+      message: "Cet article est vendu au total: " + nombreVenteArticle,
+    });
+  }
+};

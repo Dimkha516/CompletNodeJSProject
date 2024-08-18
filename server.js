@@ -27,20 +27,35 @@ app.listen(port, () => {
 --- AFFICHER TOUS LES ARTICLES, VENDEURS ET VENTES: findMany();          ============== FAIT. 
 
 
---- AFFICHER PAR UN: ARTCILE, VENDEUR, VENTES: findUnique();              ============== ENCOURS.
 
---- AFFICHER TOUS LES ARTICLES AVEC UN PRIX <= une variable: findMany();  ============== FAIT.
---- AFFICHER TOUS LES ARTICLES AVEC UN PRIX >= une variable: findMany();  ============== FAIT.
+--- AFFICHER PAR UN: findUnique()
+ARTCILE PAR ID                                                                  ============== FAIT.
+VENDEUR PAR ID                                                                 ============== FAIT.
+VENTES PAR DATE;                                                    ============== ENCOURS.  
 
---- METTRE A JOUR ARTICLE, VENDEUR, VENTE: update();                      ============== ENCOURS.
+--- AFFICHER TOUS LES:
+ARTICLES AVEC UN PRIX <= une variable: findMany();                        ============== FAIT.
+ARTICLES AVEC UN PRIX >= une variable: findMany();                        ============== FAIT.
 
---- SUPPRIMER ARTICLE, VENDEUR, VENTE: delete();                          ============== ENCOURS.
 
---- COMPTER LE NOMBRE DE VENTE EFFECTUE PAR UN VENDEUR;
-LE NOMBRE DE FOIS QU'UN ARTICLE EST VENDU,
-LE NOMBRE DE VENTE TOTAL: count();                                        ============== ENCOURS.
+--- METTRE A JOUR:
+ARTICLE                                                                   ============== FAIT. 
+VENDEUR                                                                   ============== FAIT.    
+VENTE: update();                                                          ============== ENCOURS.
 
---- CALCULER TOTAL VENTE D'UN VENDEUR ET D'UN ARTCILE: aggregate();       ============== ENCOURS.
+--- SUPPRIMER:
+ARTICLE                                                                   ============== FAIT.
+VENDEUR                                                                   ============== FAIT.  
+VENTE: delete();                                                          ============== ENCOURS.
 
---- VOIR COMMENT UTILISER groupBy();                                      ============== ENCOURS.
+--- COMPTER:   count();
+LE NOMBRE DE VENTE EFFECTUE PAR UN VENDEUR;                               ============== FAIT.                                
+LE NOMBRE DE FOIS QU'UN ARTICLE EST VENDU,                                ============== FAIT.  
+LE NOMBRE DE VENTE TOTAL                                                  ============== ENCOURS.
+
+--- CALCULER MONTANT TOTAL: aggregate();
+DE VENTE:                                                                 ============== FAIT.
+D'UN VENDEUR:                                                             ============== ENCOURS.
+D'UN ARTCILE:                                                             ============== ENCOURS.
+
 */
